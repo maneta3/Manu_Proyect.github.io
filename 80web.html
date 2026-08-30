@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Around the World in 80 Days — Timeline</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Georgia, "Times New Roman", serif;
+            background: #f4efe3;
+            color: #29251f;
+            line-height: 1.5;
+        }
+
+        header {
+            background: #202a25;
+            color: #f7f1e3;
+            padding: 70px 20px;
+            text-align: center;
+            border-bottom: 6px solid #b68b45;
+        }
+
+        header h1 {
+            font-size: clamp(2.2rem, 6vw, 4.5rem);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.15rem;
+            opacity: 0.85;
+        }
+
+        .intro {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 25px;
+            text-align: center;
+        }
+
+        .intro h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #80602d;
+        }
+
+        .intro p {
+            font-size: 1.05rem;
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 1100px;
+            margin: 70px auto;
+            padding: 20px;
+        }
+
+        /* Main timeline line */
+        .timeline::before {
+            content: "";
+            position: absolute;
+            width: 5px;
+            background: #b68b45;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        .event {
+            position: relative;
+            width: 50%;
+            padding: 20px 45px;
+            margin-bottom: 35px;
+        }
+
+        .event.left {
+            left: 0;
+            text-align: right;
+        }
+
+        .event.right {
+            left: 50%;
+            text-align: left;
+        }
+
+        .event-content {
+            background: #fffaf0;
+            border: 2px solid #d1b477;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 7px 18px rgba(0,0,0,0.08);
+            transition: 0.3s;
+        }
+
+        .event-content:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.14);
+        }
+
+        .date {
+            display: inline-block;
+            background: #80602d;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .event h3 {
+            color: #2f4038;
+            font-size: 1.35rem;
+            margin-bottom: 7px;
+        }
+
+        .event p {
+            font-size: 0.98rem;
+        }
+
+        /* Timeline circles */
+        .event::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: #fffaf0;
+            border: 5px solid #b68b45;
+            border-radius: 50%;
+            top: 35px;
+            z-index: 2;
+        }
+
+        .event.left::after {
+            right: -10px;
+        }
+
+        .event.right::after {
+            left: -10px;
+        }
+
+        /* Comic image area */
+        .comic-image {
+            width: 100%;
+            height: 190px;
+            margin-top: 15px;
+            border-radius: 8px;
+            border: 2px dashed #b68b45;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                repeating-linear-gradient(
+                    45deg,
+                    #eee5d3,
+                    #eee5d3 10px,
+                    #e6dac5 10px,
+                    #e6dac5 20px
+                );
+
+            color: #76684f;
+            font-size: 0.9rem;
+            text-align: center;
+            padding: 15px;
+        }
+
+        .comic-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 6px;
+        }
+
+        .route {
+            max-width: 1000px;
+            margin: 70px auto;
+            padding: 35px 25px;
+            background: #202a25;
+            color: white;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .route h2 {
+            margin-bottom: 20px;
+            color: #e0bd79;
+        }
+
+        .route-line {
+            font-size: 1.1rem;
+            line-height: 2;
+        }
+
+        .route span {
+            color: #e0bd79;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #171c19;
+            color: #aaa;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 80px;
+        }
+
+        footer strong {
+            color: #e0bd79;
+        }
+
+        @media (max-width: 700px) {
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .event,
+            .event.left,
+            .event.right {
+                width: 100%;
+                left: 0;
+                text-align: left;
+                padding-left: 55px;
+                padding-right: 5px;
+            }
+
+            .event.left::after,
+            .event.right::after {
+                left: 10px;
+                right: auto;
+            }
+
+            .timeline {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h1>Around the World in 80 Days
+        by Manuel
+    </h1>
+    <p>Literature timeline of Fogg's journey.</p>
+</header>
+
+<section class="intro">
+    <h2>The Journey</h2>
+    <p>
+        In 1872, Fogg bet with stuart that he can travel around
+        the world in 80 days. With his servant Passepartout,
+        he crosses Europe, Asia and America while being followed by
+     Fix, who is a detective working to found the gentlemen thief.
+    </p>
+</section>
+
+
+<main class="timeline">
+
+    <!-- EVENT 1 -->
+    <div class="event left">
+        <div class="event-content">
+
+            <span class="date">October 2, 1872</span>
+
+            <h3>London — The Bet</h3>
+
+            <p>
+                Fogg accepts a £20,000 bet at the Gentlemen's Club
+                and leaves London with Passepartout.
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- EVENT 2 -->
+    <div class="event right">
+        <div class="event-content">
+
+            <span class="date">October 3–5, 1872</span>
+
+            <h3>Across Europe</h3>
+
+            <p>
+                Fogg and Passepartout travel through
+                Paris, Turin and Brindisi.
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- EVENT 3 -->
+    <div class="event left">
+        <div class="event-content">
+
+            <span class="date">October 9, 1872</span>
+
+            <h3>Suez — Detective Fix</h3>
+
+            <p>
+                They arrive in Suez aboard the Mongolia.
+                Detective Fix begins following Fogg,
+                believing he is the bank robber.
+            </p>
+
+            <div class="comic-image">
+                Comic illustration:
+                The Mongolia and Detective Fix
+            </div>
+
+        </div>
+    </div>
+
+
+    <!-- EVENT 4 -->
+    <div class="event right">
+        <div class="event-content">
+
+            <span class="date">October 20, 1872</span>
+
+            <h3>Bombay — India</h3>
+
+            <p>
+                Fogg and Passepartout arrive in Bombay
+                and continue their journey by train.
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- EVENT 5 -->
+    <div class="event left">
+        <div class="event-content">
+
+            <span class="date">October 22–24, 1872</span>
+
+            <h3>The Elephant</h3>
+
+            <p>
+                The railway is unfinished, so they steal an elephant and rescue a princess of being burnt.
+                and cross part of India.
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- EVENT 6 -->
+    <div class="event right">
+        <div class="event-content">
+
+            <span class="date">October 23, 1872</span>
+
+            <h3>Aouda</h3>
+
+            <p>
+                Fogg and Passepartout rescue Ms. Aouda.
+                She joins them on their journey.
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- EVENT 7 -->
+    <div class="event left">
+        <div class="event-content">
+
+            <span class="date">October 25, 1872</span>
+
+            <h3>Calcutta</h3>
+
+            <p>
+                The travelers reach Calcutta and continue
+                toward Hong Kong by ship.
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- EVENT 8 -->
+    <div class="event right">
+        <div class="event-content">
+
+            <span class="date">November 6–8, 1872</span>
+
+            <h3>Hong Kong</h3>
+
+            <p>
+                Fogg, Aouda and Passepartout face delays.
+                Passepartout becomes separated from the others by a trap of Fix..
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- EVENT 9 -->
+    <div class="event left">
+        <div class="event-content">
+
+            <span class="date">November 13–14, 1872</span>
+
+            <h3>Yokohama</h3>
+
+            <p>
+                The travelers reach Japan and reunite
+                with Passepartout.
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- EVENT 10 -->
+    <div class="event right">
+        <div class="event-content">
+
+            <span class="date">December 3, 1872</span>
+
+            <h3>San Francisco</h3>
+
+            <p>
+                They arrive in the United States
+                and continue east by train.
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- EVENT 11 -->
+    <div class="event left">
+        <div class="event-content">
+
+            <span class="date">December 11, 1872</span>
+
+            <h3>New York</h3>
+
+            <p>
+                They reach New York but miss their ship.
+                Fogg finds another way to cross the Atlantic.
+            </p>
+
+        </div>
+    </div>
+
+
+    <!-- EVENT 12 -->
+    <div class="event right">
+        <div class="event-content">
+
+            <span class="date">December 21, 1872</span>
+
+            <h3>London — The Finish</h3>
+
+            <p>
+                Fogg returns to London believing he has lost.
+                However, he discovers that he has gained one day
+                by travelling around the world from west to east.
+            </p>
+
+        </div>
+    </div>
+
+</main>
+
+
+<section class="route">
+
+    <h2>The Route</h2>
+
+    <p class="route-line">
+        <span>London</span> →
+        <span>Paris</span> →
+        <span>Turin</span> →
+        <span>Brindisi</span> →
+        <span>Suez</span> →
+        <span>Bombay</span> →
+        <span>Calcutta</span> →
+        <span>Hong Kong</span> →
+        <span>Yokohama</span> →
+        <span>San Francisco</span> →
+        <span>New York</span> →
+        <span>London</span>
+    </p>
+
+</section>
+
+
+<footer>
+    <p>
+        <strong>Around the World in 80 Days</strong>
+        — Timeline project
+    </p>
+
+    <p>
+        Based on Jules Verne's classic adventure and comic adaptations.
+    </p>
+</footer>
+
+</body>
+</html>
